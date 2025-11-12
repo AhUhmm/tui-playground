@@ -129,6 +129,7 @@ All tests passing!`
 let activities = [];
 let selectedActivityIndex = -1;
 let isProcessing = false;
+let currentStyle = 'original';
 
 // DOM elements
 const promptInput = document.getElementById('prompt-input');
@@ -138,17 +139,67 @@ const timeline = document.getElementById('timeline');
 const timelineItems = document.getElementById('timeline-items');
 const detailPanel = document.getElementById('detail-panel');
 const detailContent = document.getElementById('detail-content');
+const styleToggle = document.getElementById('style-toggle');
+const styleMenu = document.getElementById('style-menu');
+const currentStyleName = document.getElementById('current-style-name');
 
 // Initialize
 promptInput.addEventListener('keydown', handleInput);
 sendButton.addEventListener('click', handleSend);
 document.addEventListener('keydown', handleNavigation);
+styleToggle.addEventListener('click', toggleStyleMenu);
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!styleToggle.contains(e.target) && !styleMenu.contains(e.target)) {
+        styleMenu.style.display = 'none';
+    }
+});
+
+// Style menu options
+document.querySelectorAll('.style-option').forEach(option => {
+    option.addEventListener('click', () => {
+        const newStyle = option.dataset.style;
+        changeVisualizationStyle(newStyle);
+        styleMenu.style.display = 'none';
+    });
+});
 
 // Auto-resize textarea
 promptInput.addEventListener('input', () => {
     promptInput.style.height = 'auto';
     promptInput.style.height = promptInput.scrollHeight + 'px';
 });
+
+function toggleStyleMenu() {
+    styleMenu.style.display = styleMenu.style.display === 'none' ? 'block' : 'none';
+}
+
+function changeVisualizationStyle(newStyle) {
+    currentStyle = newStyle;
+
+    // Update selected state in menu
+    document.querySelectorAll('.style-option').forEach(opt => {
+        opt.classList.remove('selected');
+        if (opt.dataset.style === newStyle) {
+            opt.classList.add('selected');
+            currentStyleName.textContent = opt.textContent;
+        }
+    });
+
+    // Re-render activities with new style
+    if (activities.length > 0) {
+        timelineItems.innerHTML = '';
+        activities.forEach((activity, index) => {
+            addActivityItem(activity, index);
+        });
+
+        // Restore selection if there was one
+        if (selectedActivityIndex >= 0) {
+            updateSelectedActivity();
+        }
+    }
+}
 
 function handleInput(e) {
     if (e.key === 'Enter' && !e.shiftKey && !isProcessing) {
@@ -166,6 +217,15 @@ function handleSend() {
 }
 
 function handleNavigation(e) {
+    // V key to toggle style menu (when timeline is visible)
+    if (e.key === 'v' || e.key === 'V') {
+        if (timeline.style.display !== 'none') {
+            e.preventDefault();
+            toggleStyleMenu();
+            return;
+        }
+    }
+
     // Shift+ArrowUp to enter timeline focus
     if (e.shiftKey && e.key === 'ArrowUp' && activities.length > 0) {
         e.preventDefault();
@@ -271,7 +331,7 @@ async function startActivitySimulation(prompt) {
     }
 
     // Update final message
-    assistantMsg.textContent = 'Process completed. Click on any activity above or use ← → to navigate and see details.';
+    assistantMsg.textContent = 'Process completed. Press Shift+↑ to focus timeline, then use ← → to navigate. Press Shift+↓ or Esc to return.';
 
     isProcessing = false;
     promptInput.disabled = false;
@@ -298,20 +358,17 @@ function addMessage(text, type) {
 
 function addActivityItem(activity, index) {
     const item = document.createElement('div');
-    item.className = 'activity-item';
     item.dataset.index = index;
-    item.setAttribute('tabindex', '-1'); // Make focusable but not in tab order
+    item.setAttribute('tabindex', '-1');
 
-    const typeSpan = document.createElement('span');
-    typeSpan.className = 'type';
-    typeSpan.textContent = ACTIVITIES[activity.type].type;
+    // Style-specific rendering
+    const styleConfig = getStyleConfig(activity.type, currentStyle);
+    item.className = styleConfig.className;
+    item.innerHTML = styleConfig.html;
 
-    const labelSpan = document.createElement('span');
-    labelSpan.className = 'label';
-    labelSpan.textContent = ACTIVITIES[activity.type].label;
-
-    item.appendChild(typeSpan);
-    item.appendChild(labelSpan);
+    if (styleConfig.inlineStyle) {
+        item.style.cssText = styleConfig.inlineStyle;
+    }
 
     // Add separator if not first item
     if (index > 0) {
@@ -322,6 +379,173 @@ function addActivityItem(activity, index) {
     }
 
     timelineItems.appendChild(item);
+}
+
+function getStyleConfig(type, style) {
+    const styleMap = {
+        'original': {
+            className: 'activity-item',
+            html: `<span class="type">${ACTIVITIES[type].type}</span><span class="label">${ACTIVITIES[type].label}</span>`
+        },
+        '2char': {
+            className: 'activity-item',
+            html: getShortCode(type, 2),
+            inlineStyle: 'min-width: 28px; justify-content: center;'
+        },
+        '4char': {
+            className: 'activity-item',
+            html: getShortCode(type, 4),
+            inlineStyle: 'min-width: 44px; justify-content: center;'
+        },
+        '1char-color': {
+            className: 'activity-item',
+            html: get1CharIcon(type),
+            inlineStyle: `color: ${get1CharColor(type)}; min-width: 24px; justify-content: center; font-weight: 700;`
+        },
+        'ascii-symbol': {
+            className: 'activity-item',
+            html: getASCIISymbol(type),
+            inlineStyle: 'min-width: 24px; justify-content: center; font-size: 14px; font-weight: 700;'
+        },
+        'grid-unicode': {
+            className: 'activity-item',
+            html: getGridUnicode(type),
+            inlineStyle: `min-width: 32px; height: 32px; justify-content: center; align-items: center; font-size: 10px; line-height: 1.2; color: ${get1CharColor(type)};`
+        },
+        'box-symbol': {
+            className: 'activity-item',
+            html: getBoxSymbol(type),
+            inlineStyle: `min-width: 32px; height: 32px; justify-content: center; align-items: center; font-size: 10px; line-height: 1.2; color: ${get1CharColor(type)};`
+        },
+        'dot-density': {
+            className: 'activity-item',
+            html: getDotDensity(type),
+            inlineStyle: `min-width: 32px; height: 32px; justify-content: center; align-items: center; font-size: 10px; line-height: 1.2; color: ${get1CharColor(type)};`
+        },
+        'geometric': {
+            className: 'activity-item',
+            html: getGeometric(type),
+            inlineStyle: `min-width: 32px; height: 32px; justify-content: center; align-items: center; font-size: 10px; line-height: 1.2; color: ${get1CharColor(type)};`
+        },
+        'grid-ascii': {
+            className: 'activity-item',
+            html: getGridASCII(type),
+            inlineStyle: `min-width: 32px; height: 32px; justify-content: center; align-items: center; font-size: 10px; line-height: 1.2; color: ${get1CharColor(type)};`
+        },
+        'geometric-single': {
+            className: 'activity-item',
+            html: getGeometricSingle(type),
+            inlineStyle: `color: ${get1CharColor(type)}; min-width: 28px; justify-content: center; font-weight: bold;`
+        },
+        'rgb-cmy': {
+            className: 'activity-item',
+            html: getRGBCMY(type),
+            inlineStyle: `color: ${getRGBCMYColor(type)}; min-width: 28px; justify-content: center; font-weight: bold;`
+        },
+        'perceptual': {
+            className: 'activity-item',
+            html: getPerceptual(type),
+            inlineStyle: `color: ${getPerceptualColor(type)}; min-width: 28px; justify-content: center; font-weight: bold;`
+        }
+    };
+
+    return styleMap[style] || styleMap['original'];
+}
+
+// Helper functions for different styles
+function getShortCode(type, length) {
+    const codes = {
+        2: { think: 'Th', read: 'Rd', write: 'Wr', tool: 'To', decision: 'Dc', pivot: 'Pv', error: 'Er' },
+        4: { think: 'THNK', read: 'READ', write: 'WRIT', tool: 'TOOL', decision: 'DCSN', pivot: 'PIVT', error: 'EROR' }
+    };
+    return codes[length][type] || type.substring(0, length);
+}
+
+function get1CharIcon(type) {
+    const icons = { think: 'T', read: 'R', write: 'W', tool: 'T', decision: 'D', pivot: 'P', error: 'E' };
+    return icons[type] || '?';
+}
+
+function get1CharColor(type) {
+    const colors = {
+        think: '#6ba4e7', tool: '#6dc76d', read: '#e7c76b',
+        write: '#c76be7', decision: '#e78b6b', pivot: '#e76b8b', error: '#ff4444'
+    };
+    return colors[type] || '#cccccc';
+}
+
+function getASCIISymbol(type) {
+    const symbols = { think: '?', tool: '#', read: '<', write: '>', decision: '!', pivot: '~', error: '✕' };
+    return symbols[type] || '?';
+}
+
+function getGridUnicode(type) {
+    const grids = {
+        think: '?<br>?', tool: '╔╗<br>╚╝', read: '┌┐<br>└┘',
+        write: '▐▌<br>▐▌', decision: '╱╲<br>╲╱', error: '✕<br>✕', pivot: '↻<br>↺'
+    };
+    return grids[type] || '?<br>?';
+}
+
+function getBoxSymbol(type) {
+    const boxes = {
+        think: '<br>?', tool: '[<br>#', read: '[<br><',
+        write: '[<br>>', decision: '<br>!', pivot: '<br>@', error: '{<br>X'
+    };
+    return boxes[type] || '<br>?';
+}
+
+function getDotDensity(type) {
+    const dots = {
+        think: '.<br>?', tool: '*<br>#', read: '*<br><',
+        write: '*<br>>', decision: '.<br>!', pivot: '.<br>@', error: '#<br>X'
+    };
+    return dots[type] || '.<br>?';
+}
+
+function getGeometric(type) {
+    const shapes = {
+        think: '/<br>\\', tool: '|<br>|', read: '-<br>-',
+        write: '=<br>=', decision: '\\<br>/', pivot: '<<br>>', error: 'X<br>X'
+    };
+    return shapes[type] || '/<br>\\';
+}
+
+function getGridASCII(type) {
+    const ascii = {
+        think: '?<br>?', tool: '#<br>#', read: '<<br><',
+        write: '><br>>', decision: '/<br>\\', pivot: '@<br>@', error: 'X<br>X'
+    };
+    return ascii[type] || '?<br>?';
+}
+
+function getGeometricSingle(type) {
+    const geo = { think: '/\\', tool: '||', read: '--', write: '==', decision: '\\/', pivot: '<>', error: 'XX' };
+    return geo[type] || '/\\';
+}
+
+function getRGBCMY(type) {
+    return getGeometricSingle(type);
+}
+
+function getRGBCMYColor(type) {
+    const colors = {
+        think: '#00ffff', tool: '#ff0000', read: '#00ff00',
+        write: '#0000ff', decision: '#ffff00', pivot: '#ff00ff', error: '#ffffff'
+    };
+    return colors[type] || '#cccccc';
+}
+
+function getPerceptual(type) {
+    return getGeometricSingle(type);
+}
+
+function getPerceptualColor(type) {
+    const colors = {
+        think: '#4da6ff', tool: '#ff6b35', read: '#5ebd3e',
+        write: '#ff4757', decision: '#ffcc00', pivot: '#9b59b6', error: '#ffffff'
+    };
+    return colors[type] || '#cccccc';
 }
 
 function showActivityDetail(activity) {

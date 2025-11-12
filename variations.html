@@ -11,6 +11,11 @@
         <div class="header">
             <h1>Activity Timeline Design Variations</h1>
             <p class="subtitle">Comparing different icon/character representations for activity steps</p>
+            <div style="background: #2a2a2a; border: 1px solid #4a4a4a; border-radius: 4px; padding: 12px 16px; margin-top: 16px;">
+                <p style="color: #cccccc; font-size: 13px; margin: 0;">
+                    <strong style="color: #6ba4e7;">Note:</strong> The variations below are presented in chronological order of ideation, showing the evolution of the design exploration process.
+                </p>
+            </div>
         </div>
 
         <!-- Original Design -->
@@ -229,27 +234,27 @@
                         </div>
                         <span class="sep-grid">→</span>
                         <div class="activity-item-grid type-tool" title="TOOL: using tool">
-                            <div class="grid-icon">#<br>#</div>
+                            <div class="grid-icon">╔╗<br>╚╝</div>
                         </div>
                         <span class="sep-grid">→</span>
                         <div class="activity-item-grid type-read" title="READ: reading file">
-                            <div class="grid-icon">&lt;<br>&lt;</div>
+                            <div class="grid-icon">┌┐<br>└┘</div>
                         </div>
                         <span class="sep-grid">→</span>
                         <div class="activity-item-grid type-decision selected" title="DECISION: making decision">
-                            <div class="grid-icon">/<br>\</div>
+                            <div class="grid-icon">╱╲<br>╲╱</div>
                         </div>
                         <span class="sep-grid">→</span>
                         <div class="activity-item-grid type-write" title="WRITE: writing changes">
-                            <div class="grid-icon">&gt;<br>&gt;</div>
+                            <div class="grid-icon">▐▌<br>▐▌</div>
                         </div>
                         <span class="sep-grid">→</span>
                         <div class="activity-item-grid type-error" title="ERROR: handling error">
-                            <div class="grid-icon">X<br>X</div>
+                            <div class="grid-icon">✕<br>✕</div>
                         </div>
                         <span class="sep-grid">→</span>
                         <div class="activity-item-grid type-pivot" title="PIVOT: changing approach">
-                            <div class="grid-icon">@<br>@</div>
+                            <div class="grid-icon">↻<br>↺</div>
                         </div>
                     </div>
                 </div>
@@ -262,26 +267,26 @@
 │??│  │  • Height: 2 lines
 └──┴──┘  • Total: 2×2 grid units
 
-Standard ASCII characters (0-127):
-  Letters:    AA BB CC DD EE FF ...
-  Numbers:    00 11 22 33 44 55 ...
-  Symbols:    ?? !! @@ ## $$ %% && ** ++ == ~~
-  Brackets:   [] {} () &lt;&gt;
-  Slashes:    // \\ /\ \/
-  Composed:   /\ \/ [] {} () &lt;&gt; /\ \/
+Available patterns:
+  Solid blocks:  ██  ▓▓  ▒▒  ░░
+  Box drawing:   ┌┐  ╔╗  ┏┓  ╭╮
+                 └┘  ╚╝  ┗┛  ╰╯
+  Diagonals:     ╱╲  ╲╱  ××  ✕✕
+  Arrows:        ↑↓  ←→  ↖↗  ↙↘
+  Symbols:       ??  !!  **  ++
                     </pre>
                 </div>
 
                 <div class="legend">
-                    <h3>Legend (Pure ASCII):</h3>
+                    <h3>Legend:</h3>
                     <div class="legend-items">
-                        <span class="legend-item"><code>??</code> = Think (Cognitive)</span>
-                        <span class="legend-item"><code>##</code> = Tool (Operational)</span>
-                        <span class="legend-item"><code>&lt;&lt;</code> = Read (Operational)</span>
-                        <span class="legend-item"><code>&gt;&gt;</code> = Write (Operational)</span>
-                        <span class="legend-item"><code>/\</code> = Decision (Cognitive)</span>
-                        <span class="legend-item"><code>@@</code> = Pivot (Cognitive)</span>
-                        <span class="legend-item"><code>XX</code> = Error (System)</span>
+                        <span class="legend-item"><code>??</code> = Think (question marks)</span>
+                        <span class="legend-item"><code>╔╗╚╝</code> = Tool (double box)</span>
+                        <span class="legend-item"><code>┌┐└┘</code> = Read (single box)</span>
+                        <span class="legend-item"><code>▐▌</code> = Write (vertical bars)</span>
+                        <span class="legend-item"><code>╱╲╲╱</code> = Decision (diamond)</span>
+                        <span class="legend-item"><code>✕✕</code> = Error (crosses)</span>
+                        <span class="legend-item"><code>↻↺</code> = Pivot (circular arrows)</span>
                     </div>
                 </div>
             </div>
@@ -448,6 +453,325 @@ Standard ASCII characters (0-127):
                     <p style="color: #999; font-size: 11px; margin-top: 12px;">
                         Pattern: Shape family indicates category (angular=thinking, linear=doing, cross=system alert).
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid-based Design (Pure ASCII) -->
+        <section class="variation-section">
+            <h2>Grid-based Design - Pure ASCII Version</h2>
+            <p class="description">Same 2×2 grid concept but using only standard ASCII characters (0-127) for maximum compatibility.</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-grid">
+                    <div class="timeline-items">
+                        <div class="activity-item-grid type-think" title="THINK: analyzing request">
+                            <div class="grid-icon">?<br>?</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-tool" title="TOOL: using tool">
+                            <div class="grid-icon">#<br>#</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-read" title="READ: reading file">
+                            <div class="grid-icon">&lt;<br>&lt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-decision selected" title="DECISION: making decision">
+                            <div class="grid-icon">/<br>\</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-write" title="WRITE: writing changes">
+                            <div class="grid-icon">&gt;<br>&gt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-error" title="ERROR: handling error">
+                            <div class="grid-icon">X<br>X</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-pivot" title="PIVOT: changing approach">
+                            <div class="grid-icon">@<br>@</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-analysis">
+                    <h3>Pure ASCII Grid Analysis:</h3>
+                    <pre class="grid-display">
+┌──┬──┐  Each element occupies:
+│??│  │  • Width: 2 monospace chars
+│??│  │  • Height: 2 lines
+└──┴──┘  • Total: 2×2 grid units
+
+Standard ASCII characters (0-127):
+  Letters:    AA BB CC DD EE FF ...
+  Numbers:    00 11 22 33 44 55 ...
+  Symbols:    ?? !! @@ ## $$ %% && ** ++ == ~~
+  Brackets:   [] {} () &lt;&gt;
+  Slashes:    // \\ /\ \/
+  Composed:   /\ \/ [] {} () &lt;&gt; -- == ||
+                    </pre>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend (Pure ASCII):</h3>
+                    <div class="legend-items">
+                        <span class="legend-item"><code>??</code> = Think (Cognitive)</span>
+                        <span class="legend-item"><code>##</code> = Tool (Operational)</span>
+                        <span class="legend-item"><code>&lt;&lt;</code> = Read (Operational)</span>
+                        <span class="legend-item"><code>&gt;&gt;</code> = Write (Operational)</span>
+                        <span class="legend-item"><code>/\</code> = Decision (Cognitive)</span>
+                        <span class="legend-item"><code>@@</code> = Pivot (Cognitive)</span>
+                        <span class="legend-item"><code>XX</code> = Error (System)</span>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        This version replaces Unicode box-drawing characters with ASCII equivalents for terminal compatibility.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geometric Shape System - Single Line -->
+        <section class="variation-section">
+            <h2>Geometric Shape System - Single Line (2 chars)</h2>
+            <p class="description">Compact variation of Variation 3: geometric shapes on a single line using 2 monospace characters.</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-2char">
+                    <div class="timeline-items">
+                        <div class="activity-item-2char" style="color: #6ba4e7;" title="THINK: analyzing request [Cognitive - Diamond]">/\</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #6dc76d;" title="TOOL: using tool [Operational - Vertical]">||</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #e7c76b;" title="READ: reading file [Operational - Horizontal]">--</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char selected" style="color: #e78b6b;" title="DECISION: making decision [Cognitive - Diamond]">\/</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #c76be7;" title="WRITE: writing changes [Operational - Double]">==</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #e76b8b;" title="PIVOT: changing approach [Cognitive - Angles]">&lt;&gt;</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff4444;" title="ERROR: handling error [System - Cross]">XX</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #6dc76d;" title="TOOL: running tests [Operational - Vertical]">||</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Shape Categories (Single Line):</h3>
+                    <div class="legend-items" style="display: block; margin-bottom: 16px;">
+                        <div style="margin-bottom: 8px;"><strong>Cognitive (Angles/Diamonds):</strong> <code>/\</code> Think | <code>\/</code> Decision | <code>&lt;&gt;</code> Pivot</div>
+                        <div style="margin-bottom: 8px;"><strong>Operational (Lines/Rectangles):</strong> <code>||</code> Tool | <code>--</code> Read | <code>==</code> Write</div>
+                        <div><strong>System (Cross):</strong> <code>XX</code> Error</div>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        Compact 2-character version: same geometric metaphors as Variation 3, but using only horizontal space (1 line × 2 chars instead of 2 lines × 2 chars).
+                    </p>
+                </div>
+
+                <div class="grid-analysis">
+                    <h3>Comparison:</h3>
+                    <pre class="grid-display">
+Variation 3 (2×2):          This variation (1×2):
+  /\                           /\
+  \/                           \/
+
+  ||                           ||
+  ||                           --
+
+  --                           ==
+  --                           &lt;&gt;
+
+Space: 2 chars wide,         Space: 2 chars wide,
+       2 lines tall                 1 line tall
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color-Coded Variation: RGB/CMY System -->
+        <section class="variation-section">
+            <h2>Color-Coded System: RGB/CMY Palette</h2>
+            <p class="description">Systematic color coding: RGB primaries for operational actions, CMY secondaries for cognitive processes, white for system errors.</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-2char">
+                    <div class="timeline-items">
+                        <div class="activity-item-2char" style="color: #00ffff; font-weight: bold;" title="THINK: analyzing request [Cognitive - Cyan]">/\</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff0000; font-weight: bold;" title="TOOL: using tool [Operational - Red]">||</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #00ff00; font-weight: bold;" title="READ: reading file [Operational - Green]">--</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char selected" style="color: #ffff00; font-weight: bold;" title="DECISION: making decision [Cognitive - Yellow]">\/</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #0000ff; font-weight: bold;" title="WRITE: writing changes [Operational - Blue]">==</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff00ff; font-weight: bold;" title="PIVOT: changing approach [Cognitive - Magenta]">&lt;&gt;</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ffffff; font-weight: bold; background: #333; padding: 2px 4px; border-radius: 2px;" title="ERROR: handling error [System - White]">XX</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff0000; font-weight: bold;" title="TOOL: running tests [Operational - Red]">||</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Color Logic:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 16px;">
+                        <div>
+                            <h4 style="color: #e8e8e8; font-size: 13px; margin-bottom: 8px;">Operational (RGB Primaries)</h4>
+                            <div style="margin-bottom: 6px;">
+                                <code style="color: #ff0000; font-weight: bold;">RED</code> <code>||</code> Tool
+                            </div>
+                            <div style="margin-bottom: 6px;">
+                                <code style="color: #00ff00; font-weight: bold;">GREEN</code> <code>--</code> Read
+                            </div>
+                            <div>
+                                <code style="color: #0000ff; font-weight: bold;">BLUE</code> <code>==</code> Write
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="color: #e8e8e8; font-size: 13px; margin-bottom: 8px;">Cognitive (CMY Secondaries)</h4>
+                            <div style="margin-bottom: 6px;">
+                                <code style="color: #00ffff; font-weight: bold;">CYAN</code> <code>/\</code> Think
+                            </div>
+                            <div style="margin-bottom: 6px;">
+                                <code style="color: #ffff00; font-weight: bold;">YELLOW</code> <code>\/</code> Decision
+                            </div>
+                            <div>
+                                <code style="color: #ff00ff; font-weight: bold;">MAGENTA</code> <code>&lt;&gt;</code> Pivot
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: #2a2a2a; padding: 12px; border-radius: 4px; border: 1px solid #3a3a3a;">
+                        <h4 style="color: #e8e8e8; font-size: 13px; margin-bottom: 8px;">System (High Contrast)</h4>
+                        <div>
+                            <code style="color: #ffffff; font-weight: bold; background: #333; padding: 2px 6px; border-radius: 2px;">WHITE</code> <code>XX</code> Error - Maximum visibility, stands out among all colors
+                        </div>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        <strong>Rationale:</strong> RGB primaries represent concrete operations (actions on the world),
+                        CMY secondaries represent abstract thinking (mental processes). White error creates maximum contrast.
+                    </p>
+                </div>
+
+                <div class="grid-analysis">
+                    <h3>Color Theory Reference:</h3>
+                    <pre class="grid-display" style="line-height: 1.8;">
+RGB (Additive primaries):        CMY (Subtractive primaries):
+  Red   = #FF0000                  Cyan    = #00FFFF (R+G complement)
+  Green = #00FF00                  Magenta = #FF00FF (R+B complement)
+  Blue  = #0000FF                  Yellow  = #FFFF00 (G+B complement)
+
+Used for: Operational actions    Used for: Cognitive processes
+(concrete, external)             (abstract, internal)
+
+System alerts: White #FFFFFF (maximum contrast on dark background)
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perceptual Temperature Coding -->
+        <section class="variation-section">
+            <h2>Perceptual Temperature System: Warm/Cool/Alert</h2>
+            <p class="description">Color coding based on visual perception research: warm advancing colors for initiating actions, cool receding colors for receptive actions, high-saturation alerts for decisions and errors.</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-2char">
+                    <div class="timeline-items">
+                        <div class="activity-item-2char" style="color: #4da6ff; font-weight: bold;" title="THINK: analyzing request [Cool - Receding - 6500K]">/\</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff6b35; font-weight: bold;" title="TOOL: using tool [Warm - Advancing - 2700K]">||</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #5ebd3e; font-weight: bold;" title="READ: reading file [Cool - Receptive - 5000K]">--</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char selected" style="color: #ffcc00; font-weight: bold;" title="DECISION: making decision [Alert - High Attention - 3500K]">\/</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff4757; font-weight: bold;" title="WRITE: writing changes [Warm - Active - 2500K]">==</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #9b59b6; font-weight: bold;" title="PIVOT: changing approach [Alert - Shift Attention - 7000K]">&lt;&gt;</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ffffff; font-weight: bold; background: #d93636; padding: 2px 4px; border-radius: 2px;" title="ERROR: handling error [Maximum Alert - Danger]">XX</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" style="color: #ff6b35; font-weight: bold;" title="TOOL: running tests [Warm - Advancing - 2700K]">||</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Perceptual Logic:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                        <div>
+                            <h4 style="color: #ff6b35; font-size: 13px; margin-bottom: 8px;">🔥 Warm (Advancing)</h4>
+                            <div style="font-size: 12px; color: #ccc; margin-bottom: 4px;">2500-3000K</div>
+                            <div style="margin-bottom: 6px; font-size: 12px;">
+                                <code style="color: #ff6b35; font-weight: bold;">Orange</code> Tool
+                            </div>
+                            <div style="font-size: 12px;">
+                                <code style="color: #ff4757; font-weight: bold;">Red-Org</code> Write
+                            </div>
+                            <p style="font-size: 11px; color: #999; margin-top: 8px;">
+                                Visually advance, grab attention, action-oriented
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: #4da6ff; font-size: 13px; margin-bottom: 8px;">❄️ Cool (Receding)</h4>
+                            <div style="font-size: 12px; color: #ccc; margin-bottom: 4px;">5000-6500K</div>
+                            <div style="margin-bottom: 6px; font-size: 12px;">
+                                <code style="color: #4da6ff; font-weight: bold;">Sky Blue</code> Think
+                            </div>
+                            <div style="font-size: 12px;">
+                                <code style="color: #5ebd3e; font-weight: bold;">Green</code> Read
+                            </div>
+                            <p style="font-size: 11px; color: #999; margin-top: 8px;">
+                                Visually recede, calm, receptive processes
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: #ffcc00; font-size: 13px; margin-bottom: 8px;">⚡ Alert (High Sat)</h4>
+                            <div style="font-size: 12px; color: #ccc; margin-bottom: 4px;">Variable temp</div>
+                            <div style="margin-bottom: 6px; font-size: 12px;">
+                                <code style="color: #ffcc00; font-weight: bold;">Yellow</code> Decision
+                            </div>
+                            <div style="margin-bottom: 6px; font-size: 12px;">
+                                <code style="color: #9b59b6; font-weight: bold;">Purple</code> Pivot
+                            </div>
+                            <div style="font-size: 12px;">
+                                <code style="color: #ffffff; background: #d93636; padding: 1px 4px; border-radius: 2px; font-weight: bold;">White/Red</code> Error
+                            </div>
+                            <p style="font-size: 11px; color: #999; margin-top: 8px;">
+                                High saturation, demand immediate attention
+                            </p>
+                        </div>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        <strong>Science-based:</strong> Warm colors (low Kelvin) advance visually and trigger arousal/action.
+                        Cool colors (high Kelvin) recede and promote calm/receptive states.
+                        High-saturation colors (yellow, purple) demand attention for critical decision points.
+                        White-on-red creates maximum urgency response.
+                    </p>
+                </div>
+
+                <div class="grid-analysis">
+                    <h3>Perception Principles Applied:</h3>
+                    <pre class="grid-display" style="line-height: 1.8;">
+<strong>1. Visual Advancing/Receding (Chromatic Aberration)</strong>
+   Warm colors (red, orange) appear closer → Active operations
+   Cool colors (blue, green) appear farther → Passive/receptive
+
+<strong>2. Arousal Response (Psychological Impact)</strong>
+   Warm: ↑ arousal, urgency, focus on detail (Tool, Write)
+   Cool: ↓ arousal, calm, creative thinking (Think, Read)
+
+<strong>3. Attention Capture (Saturation + Hue)</strong>
+   Yellow: Maximum visibility, decision-making trigger
+   Purple: Rare in nature, signals unusual event (pivot)
+   White on Red: Danger pattern, immediate action required
+
+<strong>4. Color Temperature (Kelvin Scale)</strong>
+   2500K (warm) ──────→ 7000K (cool)
+   Action-oriented        Contemplative
+
+<strong>5. Temporal Attention Pattern</strong>
+   Warm colors: Attention at START of process (initiate)
+   Cool colors: Attention at END of process (receive/analyze)
+                    </pre>
                 </div>
             </div>
         </section>
