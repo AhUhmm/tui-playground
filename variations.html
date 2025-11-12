@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Timeline Design Variations</title>
+    <link rel="stylesheet" href="variations.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="header">
+            <h1>Activity Timeline Design Variations</h1>
+            <p class="subtitle">Comparing different icon/character representations for activity steps</p>
+        </div>
+
+        <!-- Original Design -->
+        <section class="variation-section">
+            <h2>Original Design</h2>
+            <p class="description">Full text labels with type prefix</p>
+            <div class="demo-box">
+                <div class="activity-timeline">
+                    <div class="timeline-items">
+                        <div class="activity-item">
+                            <span class="type">THINK</span>
+                            <span class="label">analyzing request</span>
+                        </div>
+                        <span class="activity-separator">→</span>
+                        <div class="activity-item">
+                            <span class="type">TOOL</span>
+                            <span class="label">using tool</span>
+                        </div>
+                        <span class="activity-separator">→</span>
+                        <div class="activity-item">
+                            <span class="type">READ</span>
+                            <span class="label">reading file</span>
+                        </div>
+                        <span class="activity-separator">→</span>
+                        <div class="activity-item selected">
+                            <span class="type">DECISION</span>
+                            <span class="label">making decision</span>
+                        </div>
+                        <span class="activity-separator">→</span>
+                        <div class="activity-item">
+                            <span class="type">WRITE</span>
+                            <span class="label">writing changes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2-Character Variation -->
+        <section class="variation-section">
+            <h2>2-Character Variation</h2>
+            <p class="description">Minimal representation using 2 monospace characters per activity</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-2char">
+                    <div class="timeline-items">
+                        <div class="activity-item-2char" title="THINK: analyzing request">Th</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="TOOL: using tool">To</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="READ: reading file">Rd</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char selected" title="DECISION: making decision">Dc</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="WRITE: writing changes">Wr</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="THINK: reviewing">Th</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="PIVOT: changing approach">Pv</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="ERROR: handling error">Er</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-2char" title="TOOL: running tests">To</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend:</h3>
+                    <div class="legend-items">
+                        <span class="legend-item"><code>Th</code> = Think</span>
+                        <span class="legend-item"><code>To</code> = Tool</span>
+                        <span class="legend-item"><code>Rd</code> = Read</span>
+                        <span class="legend-item"><code>Wr</code> = Write</span>
+                        <span class="legend-item"><code>Dc</code> = Decision</span>
+                        <span class="legend-item"><code>Pv</code> = Pivot</span>
+                        <span class="legend-item"><code>Er</code> = Error</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4-Character Variation -->
+        <section class="variation-section">
+            <h2>4-Character Variation</h2>
+            <p class="description">Balanced representation using 4 monospace characters per activity</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-4char">
+                    <div class="timeline-items">
+                        <div class="activity-item-4char" title="THINK: analyzing request">THNK</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="TOOL: using tool">TOOL</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="READ: reading file">READ</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char selected" title="DECISION: making decision">DCSN</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="WRITE: writing changes">WRIT</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="THINK: reviewing">THNK</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="PIVOT: changing approach">PIVT</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="ERROR: handling error">EROR</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-4char" title="TOOL: running tests">TOOL</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend:</h3>
+                    <div class="legend-items">
+                        <span class="legend-item"><code>THNK</code> = Think</span>
+                        <span class="legend-item"><code>TOOL</code> = Tool</span>
+                        <span class="legend-item"><code>READ</code> = Read</span>
+                        <span class="legend-item"><code>WRIT</code> = Write</span>
+                        <span class="legend-item"><code>DCSN</code> = Decision</span>
+                        <span class="legend-item"><code>PIVT</code> = Pivot</span>
+                        <span class="legend-item"><code>EROR</code> = Error</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternative: Single Character with Color -->
+        <section class="variation-section">
+            <h2>Single Character with Color Coding</h2>
+            <p class="description">Ultra-minimal: single letter with color differentiation</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-1char">
+                    <div class="timeline-items">
+                        <div class="activity-item-1char type-think" title="THINK: analyzing request">T</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-tool" title="TOOL: using tool">T</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-read" title="READ: reading file">R</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-decision selected" title="DECISION: making decision">D</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-write" title="WRITE: writing changes">W</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-think" title="THINK: reviewing">T</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-pivot" title="PIVOT: changing approach">P</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-error" title="ERROR: handling error">E</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-1char type-tool" title="TOOL: running tests">T</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend:</h3>
+                    <div class="legend-items">
+                        <span class="legend-item"><code class="color-think">T</code> = Think (blue)</span>
+                        <span class="legend-item"><code class="color-tool">T</code> = Tool (green)</span>
+                        <span class="legend-item"><code class="color-read">R</code> = Read (yellow)</span>
+                        <span class="legend-item"><code class="color-write">W</code> = Write (magenta)</span>
+                        <span class="legend-item"><code class="color-decision">D</code> = Decision (orange)</span>
+                        <span class="legend-item"><code class="color-pivot">P</code> = Pivot (red)</span>
+                        <span class="legend-item"><code class="color-error">E</code> = Error (bright red)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Symbol-based Variation -->
+        <section class="variation-section">
+            <h2>ASCII Symbol-based</h2>
+            <p class="description">Using ASCII symbols for visual differentiation</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-symbol">
+                    <div class="timeline-items">
+                        <div class="activity-item-symbol" title="THINK: analyzing request">?</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="TOOL: using tool">#</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="READ: reading file">&lt;</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol selected" title="DECISION: making decision">!</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="WRITE: writing changes">&gt;</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="THINK: reviewing">?</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="PIVOT: changing approach">~</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="ERROR: handling error">✕</div>
+                        <span class="sep">→</span>
+                        <div class="activity-item-symbol" title="TOOL: running tests">#</div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend:</h3>
+                    <div class="legend-items">
+                        <span class="legend-item"><code>?</code> = Think</span>
+                        <span class="legend-item"><code>#</code> = Tool</span>
+                        <span class="legend-item"><code>&lt;</code> = Read</span>
+                        <span class="legend-item"><code>&gt;</code> = Write</span>
+                        <span class="legend-item"><code>!</code> = Decision</span>
+                        <span class="legend-item"><code>~</code> = Pivot</span>
+                        <span class="legend-item"><code>✕</code> = Error</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid-based Design -->
+        <section class="variation-section">
+            <h2>Grid-based Design (2-line Square Elements)</h2>
+            <p class="description">Elements occupy a square space of 2 monospace line heights. Using monospace grid as base unit for ASCII art mini-icons.</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-grid">
+                    <div class="timeline-items">
+                        <div class="activity-item-grid type-think" title="THINK: analyzing request">
+                            <div class="grid-icon">?<br>?</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-tool" title="TOOL: using tool">
+                            <div class="grid-icon">#<br>#</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-read" title="READ: reading file">
+                            <div class="grid-icon">&lt;<br>&lt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-decision selected" title="DECISION: making decision">
+                            <div class="grid-icon">/<br>\</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-write" title="WRITE: writing changes">
+                            <div class="grid-icon">&gt;<br>&gt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-error" title="ERROR: handling error">
+                            <div class="grid-icon">X<br>X</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid type-pivot" title="PIVOT: changing approach">
+                            <div class="grid-icon">@<br>@</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-analysis">
+                    <h3>Grid Analysis:</h3>
+                    <pre class="grid-display">
+┌──┬──┐  Each element occupies:
+│??│  │  • Width: 2 monospace chars
+│??│  │  • Height: 2 lines
+└──┴──┘  • Total: 2×2 grid units
+
+Standard ASCII characters (0-127):
+  Letters:    AA BB CC DD EE FF ...
+  Numbers:    00 11 22 33 44 55 ...
+  Symbols:    ?? !! @@ ## $$ %% && ** ++ == ~~
+  Brackets:   [] {} () &lt;&gt;
+  Slashes:    // \\ /\ \/
+  Composed:   /\ \/ [] {} () &lt;&gt; /\ \/
+                    </pre>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend (Pure ASCII):</h3>
+                    <div class="legend-items">
+                        <span class="legend-item"><code>??</code> = Think (Cognitive)</span>
+                        <span class="legend-item"><code>##</code> = Tool (Operational)</span>
+                        <span class="legend-item"><code>&lt;&lt;</code> = Read (Operational)</span>
+                        <span class="legend-item"><code>&gt;&gt;</code> = Write (Operational)</span>
+                        <span class="legend-item"><code>/\</code> = Decision (Cognitive)</span>
+                        <span class="legend-item"><code>@@</code> = Pivot (Cognitive)</span>
+                        <span class="legend-item"><code>XX</code> = Error (System)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category-based Variation 1: Box & Symbol System -->
+        <section class="variation-section">
+            <h2>Variation 1: Box & Symbol System (Pure ASCII)</h2>
+            <p class="description">Uses bracket/box characters to group categories: Cognitive=angles, Operational=brackets, System=special</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-grid">
+                    <div class="timeline-items">
+                        <div class="activity-item-grid" title="THINK: analyzing request [Cognitive]">
+                            <div class="grid-icon" style="color: #6ba4e7;">&lt;<br>?</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="TOOL: using tool [Operational]">
+                            <div class="grid-icon" style="color: #6dc76d;">[<br>#</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="READ: reading file [Operational]">
+                            <div class="grid-icon" style="color: #e7c76b;">[<br>&lt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid selected" title="DECISION: making decision [Cognitive]">
+                            <div class="grid-icon" style="color: #e78b6b;">&lt;<br>!</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="WRITE: writing changes [Operational]">
+                            <div class="grid-icon" style="color: #c76be7;">[<br>&gt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="PIVOT: changing approach [Cognitive]">
+                            <div class="grid-icon" style="color: #e76b8b;">&lt;<br>@</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="ERROR: handling error [System]">
+                            <div class="grid-icon" style="color: #ff4444;">{<br>X</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="TOOL: running tests [Operational]">
+                            <div class="grid-icon" style="color: #6dc76d;">[<br>#</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Category Groups:</h3>
+                    <div class="legend-items" style="display: block; margin-bottom: 16px;">
+                        <div style="margin-bottom: 8px;"><strong>Cognitive:</strong> <code>&lt;?</code> Think | <code>&lt;!</code> Decision | <code>&lt;@</code> Pivot</div>
+                        <div style="margin-bottom: 8px;"><strong>Operational:</strong> <code>[#</code> Tool | <code>[&lt;</code> Read | <code>[&gt;</code> Write</div>
+                        <div><strong>System:</strong> <code>{X</code> Error</div>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        Pattern: First char indicates category (&lt;=Cognitive, [=Operational, {=System), second char is the specific action.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category-based Variation 2: Dot Pattern System -->
+        <section class="variation-section">
+            <h2>Variation 2: Dot Pattern Density (Pure ASCII)</h2>
+            <p class="description">Uses dot/asterisk density to distinguish categories: Cognitive=sparse, Operational=medium, System=dense</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-grid">
+                    <div class="timeline-items">
+                        <div class="activity-item-grid" title="THINK: analyzing request [Cognitive - Sparse]">
+                            <div class="grid-icon" style="color: #6ba4e7;">.<br>?</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="TOOL: using tool [Operational - Medium]">
+                            <div class="grid-icon" style="color: #6dc76d;">*<br>#</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="READ: reading file [Operational - Medium]">
+                            <div class="grid-icon" style="color: #e7c76b;">*<br>&lt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid selected" title="DECISION: making decision [Cognitive - Sparse]">
+                            <div class="grid-icon" style="color: #e78b6b;">.<br>!</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="WRITE: writing changes [Operational - Medium]">
+                            <div class="grid-icon" style="color: #c76be7;">*<br>&gt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="PIVOT: changing approach [Cognitive - Sparse]">
+                            <div class="grid-icon" style="color: #e76b8b;">.<br>@</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="ERROR: handling error [System - Dense]">
+                            <div class="grid-icon" style="color: #ff4444;">#<br>X</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="TOOL: running tests [Operational - Medium]">
+                            <div class="grid-icon" style="color: #6dc76d;">*<br>#</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Category Density:</h3>
+                    <div class="legend-items" style="display: block; margin-bottom: 16px;">
+                        <div style="margin-bottom: 8px;"><strong>Cognitive (.):</strong> <code>.?</code> Think | <code>.!</code> Decision | <code>.@</code> Pivot</div>
+                        <div style="margin-bottom: 8px;"><strong>Operational (*):</strong> <code>*#</code> Tool | <code>*&lt;</code> Read | <code>*&gt;</code> Write</div>
+                        <div><strong>System (#):</strong> <code>#X</code> Error</div>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        Pattern: Top char shows category density level (light/medium/dense), bottom shows specific action.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category-based Variation 3: Shape-based System -->
+        <section class="variation-section">
+            <h2>Variation 3: Geometric Shape System (Pure ASCII)</h2>
+            <p class="description">Uses geometric shapes: Cognitive=diamonds/angles, Operational=squares/lines, System=crosses</p>
+            <div class="demo-box">
+                <div class="activity-timeline variation-grid">
+                    <div class="timeline-items">
+                        <div class="activity-item-grid" title="THINK: analyzing request [Cognitive - Diamond]">
+                            <div class="grid-icon" style="color: #6ba4e7;">/<br>\</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="TOOL: using tool [Operational - Square]">
+                            <div class="grid-icon" style="color: #6dc76d;">|<br>|</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="READ: reading file [Operational - Square]">
+                            <div class="grid-icon" style="color: #e7c76b;">-<br>-</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid selected" title="DECISION: making decision [Cognitive - Diamond]">
+                            <div class="grid-icon" style="color: #e78b6b;">\<br>/</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="WRITE: writing changes [Operational - Square]">
+                            <div class="grid-icon" style="color: #c76be7;">=<br>=</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="PIVOT: changing approach [Cognitive - Diamond]">
+                            <div class="grid-icon" style="color: #e76b8b;">&lt;<br>&gt;</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="ERROR: handling error [System - Cross]">
+                            <div class="grid-icon" style="color: #ff4444;">X<br>X</div>
+                        </div>
+                        <span class="sep-grid">→</span>
+                        <div class="activity-item-grid" title="TOOL: running tests [Operational - Square]">
+                            <div class="grid-icon" style="color: #6dc76d;">|<br>|</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Shape Categories:</h3>
+                    <div class="legend-items" style="display: block; margin-bottom: 16px;">
+                        <div style="margin-bottom: 8px;"><strong>Cognitive (Angles/Diamonds):</strong> <code>/\</code> Think | <code>\/</code> Decision | <code>&lt;&gt;</code> Pivot</div>
+                        <div style="margin-bottom: 8px;"><strong>Operational (Lines/Rectangles):</strong> <code>||</code> Tool | <code>--</code> Read | <code>==</code> Write</div>
+                        <div><strong>System (Cross):</strong> <code>XX</code> Error</div>
+                    </div>
+                    <p style="color: #999; font-size: 11px; margin-top: 12px;">
+                        Pattern: Shape family indicates category (angular=thinking, linear=doing, cross=system alert).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>← <a href="index.html">Back to main prototype</a></p>
+        </footer>
+    </div>
+</body>
+</html>

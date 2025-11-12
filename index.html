@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code - Activity Monitor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Messages Area -->
+        <div class="messages-area" id="messages">
+            <div class="assistant-message">
+                <div class="message-content">
+                    I'll help you with your task. Type a message to see how I process it.
+                    <br><br>
+                    <small style="color: #666;">Tip: After sending a message, press Shift+↑ to focus the activity timeline, then use ← → to navigate.</small>
+                    <br>
+                    <small style="color: #666;">View <a href="variations.html" style="color: #6ba4e7;">design variations</a> for different activity representations.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Timeline (appears above input) -->
+        <div class="activity-timeline" id="timeline" style="display: none;">
+            <div class="timeline-items" id="timeline-items"></div>
+        </div>
+
+        <!-- Activity Detail Panel -->
+        <div class="activity-detail" id="detail-panel" style="display: none;">
+            <div class="detail-content" id="detail-content"></div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-wrapper">
+                <textarea id="prompt-input" class="prompt-input" placeholder="Message Claude Code..." rows="1"></textarea>
+                <button class="send-button" id="send-button">↵</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
