@@ -1,0 +1,256 @@
+/* TUI Playground - Base Styles
+   Common styles for all experiments */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Layout */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    background: #1e1e1e;
+    color: #cccccc;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* External Info (tips outside window) */
+.external-info {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 12px;
+}
+
+.info-content {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* External Controls (outside window) */
+.external-controls {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Window Container */
+.window-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    background: #1e1e1e;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Window Header */
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.window-title {
+    font-size: 13px;
+    color: #999999;
+    font-weight: 500;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.window-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #3a3a3a;
+    background: #2a2a2a;
+    color: #888888;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.window-btn:hover {
+    background: #333333;
+    color: #cccccc;
+}
+
+.window-btn.close:hover {
+    background: #ff4444;
+    border-color: #ff4444;
+    color: #ffffff;
+}
+
+.window-btn.minimize:hover {
+    background: #ffcc00;
+    border-color: #ffcc00;
+    color: #1e1e1e;
+}
+
+.window-btn.maximize:hover {
+    background: #6dc76d;
+    border-color: #6dc76d;
+    color: #1e1e1e;
+}
+
+/* Window Content */
+.window-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Messages Area */
+.messages-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.user-message,
+.assistant-message {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.user-message .message-content {
+    color: #e8e8e8;
+}
+
+/* Input Area */
+.input-area {
+    border-top: 1px solid #3a3a3a;
+    background: #1e1e1e;
+    padding: 16px;
+    flex-shrink: 0;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: border-color 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: #555555;
+}
+
+.prompt-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', 'Menlo', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    outline: none;
+    resize: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.prompt-input::placeholder {
+    color: #666666;
+}
+
+.send-button {
+    background: transparent;
+    border: none;
+    color: #888888;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.send-button:hover {
+    color: #cccccc;
+}
+
+.send-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Scrollbar Styling */
+.messages-area::-webkit-scrollbar,
+.detail-content::-webkit-scrollbar,
+.prompt-input::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.messages-area::-webkit-scrollbar-track,
+.detail-content::-webkit-scrollbar-track,
+.prompt-input::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.messages-area::-webkit-scrollbar-thumb,
+.detail-content::-webkit-scrollbar-thumb,
+.prompt-input::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 4px;
+}
+
+.messages-area::-webkit-scrollbar-thumb:hover,
+.detail-content::-webkit-scrollbar-thumb:hover,
+.prompt-input::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4a;
+}
+
+/* Common Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 300px;
+    }
+}

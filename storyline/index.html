@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUI - Activity Monitor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Tips and Notes (outside window) -->
+    <div class="external-info">
+        <div class="info-content">
+            <small style="color: #666;">Tip: After sending a message, press Shift+↑ to focus the activity timeline, then use ← → to navigate.</small>
+            <br>
+            <small style="color: #666;">View <a href="variations.html" style="color: #6ba4e7;">design variations</a> for different activity representations.</small>
+        </div>
+    </div>
+
+    <!-- Style Selector (outside window) -->
+    <div class="external-controls">
+        <button class="style-toggle" id="style-toggle" title="Change visualization style (V)">
+            <span id="current-style-name">Original</span> ▾
+        </button>
+        <div class="style-menu" id="style-menu" style="display: none;">
+            <div class="style-option" data-style="original">Original Design</div>
+            <div class="style-option" data-style="2char">2-Character</div>
+            <div class="style-option" data-style="4char">4-Character</div>
+            <div class="style-option" data-style="1char-color">Single Char + Color</div>
+            <div class="style-option" data-style="ascii-symbol">ASCII Symbols</div>
+            <div class="style-option" data-style="grid-unicode">Grid (Unicode)</div>
+            <div class="style-option" data-style="box-symbol">Box & Symbol</div>
+            <div class="style-option" data-style="dot-density">Dot Density</div>
+            <div class="style-option" data-style="geometric">Geometric Shapes</div>
+            <div class="style-option" data-style="grid-ascii">Grid (Pure ASCII)</div>
+            <div class="style-option" data-style="geometric-single">Geometric Single Line</div>
+            <div class="style-option" data-style="rgb-cmy">RGB/CMY Colors</div>
+            <div class="style-option" data-style="perceptual">Perceptual Temperature</div>
+        </div>
+    </div>
+
+    <!-- Window Container -->
+    <div class="window-container">
+        <!-- Window Header with controls -->
+        <div class="window-header">
+            <div class="window-title">TUI - Activity Monitor</div>
+            <div class="window-controls">
+                <button class="window-btn minimize">−</button>
+                <button class="window-btn maximize">□</button>
+                <button class="window-btn close">×</button>
+            </div>
+        </div>
+
+        <!-- Window Content -->
+        <div class="window-content">
+            <!-- Messages Area -->
+            <div class="messages-area" id="messages">
+                <div class="assistant-message">
+                    <div class="message-content">
+                        I'll help you with your task. Type a message to see how I process it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Detail Panel -->
+            <div class="activity-detail" id="detail-panel" style="display: none;">
+                <div class="detail-content" id="detail-content"></div>
+            </div>
+
+            <!-- Activity Timeline -->
+            <div class="activity-timeline" id="timeline" style="display: none;">
+                <div class="timeline-items" id="timeline-items"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="prompt-input" class="prompt-input" placeholder="Message your favourite artificial mind..." rows="1"></textarea>
+                    <button class="send-button" id="send-button">↵</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

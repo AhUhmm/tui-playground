@@ -1,97 +1,66 @@
-# LLM Activity Monitor - TUI Prototype
+# TUI Playground
 
-Una Terminal UI per visualizzare e navigare le attività di un modello LLM durante l'elaborazione dei prompt.
+A collection of Terminal UI experiments and prototypes exploring interface design patterns for command-line-inspired web applications.
 
-## 🎯 Caratteristiche
+## Experiments
 
-- **Interfaccia Terminal-style**: Design monospace con estetica CLI classica
-- **Timeline delle Attività**: Visualizzazione grafica delle operazioni del modello
-- **Navigazione Interattiva**: Usa le frecce ← → per esplorare ogni step
-- **6 Tipi di Attività**:
-  - 🧠 **Think**: Analisi e pianificazione
-  - 📖 **Read**: Lettura file/dati
-  - ✍️ **Write**: Scrittura/modifica
-  - 🔧 **Tool**: Uso di strumenti
-  - ⚖️ **Decision**: Decisioni strategiche
-  - 🔄 **Pivot**: Cambio di approccio
+### 🎯 Storyline Activity Monitor
 
-## 🚀 Demo
+An interactive activity monitor designed to explore and visualize the sequence of operations and steps performed by a language model.
 
-Apri semplicemente `index.html` in un browser moderno o visita la [GitHub Page](https://yourusername.github.io/tui-playground/).
+**Features:**
+- Keyboard-driven navigation (Shift+↑/↓ to focus, ←/→ to navigate)
+- 13 different visualization styles (from verbose text to color-coded symbols)
+- Detailed step inspection with code snippets
+- Terminal-first, monospace-compatible design
+- Real-time activity simulation
 
-## 💻 Come Usare
+**[Try it live →](https://ahuhmm.github.io/tui-playground/storyline/)**
 
-1. **Inserisci un prompt** nella barra di input in basso
-2. **Premi INVIO** per avviare la simulazione
-3. **Osserva la timeline** che si popola con le icone delle attività
-4. **Clicca su un'icona** o usa **← →** per navigare tra gli step
-5. **Visualizza i dettagli** dello snippet per ogni attività
-6. **Premi ESC** per pulire la timeline e ricominciare
+**Key Design Principles:**
+- No emoji icons (CLI-compatible)
+- Monospace grid-based layouts
+- Color perception psychology (perceptual temperature system)
+- Activity categorization (cognitive/operational/system)
 
-## 📦 Struttura del Progetto
+## Project Structure
 
 ```
 tui-playground/
-├── index.html      # Struttura HTML principale
-├── style.css       # Styling terminal + timeline
-├── script.js       # Logica di simulazione e navigazione
-└── README.md       # Questa documentazione
+├── index.html              # Main landing page
+├── storyline/              # Storyline Activity Monitor experiment
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   ├── variations.html     # Visualization style showcase
+│   └── variations.css
+└── README.md
 ```
 
-## 🎨 Personalizzazione
+## Development
 
-### Aggiungere Nuovi Tipi di Attività
+This is a static site project. Simply open `index.html` in a browser or serve the directory with any static file server.
 
-Modifica l'oggetto `ACTIVITIES` in `script.js`:
+```bash
+# Using Python
+python -m http.server 8000
 
-```javascript
-const ACTIVITIES = {
-    nuova_attivita: {
-        icon: '🎯',
-        label: 'Nome',
-        color: '#hexcolor'
-    }
-};
+# Using Node.js
+npx serve
 ```
 
-### Modificare la Sequenza di Simulazione
+## GitHub Pages
 
-Edita l'array `SAMPLE_ACTIVITIES` in `script.js` per creare scenari personalizzati.
+This project is deployed to GitHub Pages: https://ahuhmm.github.io/tui-playground/
 
-## 🌐 Deploy su GitHub Pages
+## Future Experiments
 
-1. Fai il commit di tutti i file
-2. Vai su Settings → Pages
-3. Seleziona branch `main` e cartella `/ (root)`
-4. Salva e attendi qualche minuto
-5. La tua TUI sarà disponibile su `https://username.github.io/tui-playground/`
+Stay tuned for more TUI experiments exploring:
+- Command palette interfaces
+- Log viewers and debuggers
+- File tree navigators
+- Progress indicators and status displays
 
-## 🛠️ Tecnologie
+## License
 
-- **HTML5**
-- **CSS3** (animazioni, flexbox, scrollbar custom)
-- **Vanilla JavaScript** (ES6+)
-- Nessuna dipendenza esterna!
-
-## 📝 Note Tecniche
-
-- Stile monospace per mantenere l'autenticità del terminale
-- Animazioni CSS per transizioni fluide
-- Event listener per keyboard navigation
-- Simulazione asincrona con delay realistici
-
-## 🎯 Prossimi Sviluppi
-
-- [ ] Import/export delle sequenze di attività
-- [ ] Temi personalizzabili
-- [ ] Integrazione con API LLM reali
-- [ ] Statistiche e metriche di performance
-- [ ] Timeline multipli per comparazioni
-
-## 📄 Licenza
-
-MIT License - Sentiti libero di usare questo progetto come preferisci!
-
----
-
-**Creato con** ❤️ **per esplorare l'UX delle interfacce LLM**
+MIT

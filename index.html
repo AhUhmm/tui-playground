@@ -3,63 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Code - Activity Monitor</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TUI Playground - Terminal UI Experiments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #cccccc;
+            padding: 60px 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #e8e8e8;
+            font-size: 32px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: #999999;
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+
+        .experiments {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .experiment-card {
+            background: #252525;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .experiment-card:hover {
+            border-color: #4a7a9a;
+            background: #2a2a2a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .experiment-title {
+            color: #6ba4e7;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experiment-description {
+            color: #aaaaaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .experiment-tag {
+            display: inline-block;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #888888;
+            margin-top: 12px;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 24px;
+            border-top: 1px solid #3a3a3a;
+            text-align: center;
+            color: #666666;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #6ba4e7;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="chat-container">
-        <!-- Messages Area -->
-        <div class="messages-area" id="messages">
-            <div class="assistant-message">
-                <div class="message-content">
-                    I'll help you with your task. Type a message to see how I process it.
-                    <br><br>
-                    <small style="color: #666;">Tip: After sending a message, press Shift+↑ to focus the activity timeline, then use ← → to navigate.</small>
-                    <br>
-                    <small style="color: #666;">View <a href="variations.html" style="color: #6ba4e7;">design variations</a> for different activity representations.</small>
+    <div class="container">
+        <h1>TUI Playground</h1>
+        <p class="subtitle">Terminal UI experiments and prototypes</p>
+
+        <div class="experiments">
+            <a href="storyline/index.html" class="experiment-card">
+                <div class="experiment-title">Storyline Activity Monitor</div>
+                <div class="experiment-description">
+                    An interactive activity monitor designed to explore and visualize the sequence of operations
+                    and steps performed by a language model. Features keyboard-driven navigation, multiple
+                    visualization styles, and detailed step inspection. Built with a terminal-first,
+                    monospace-compatible design philosophy.
                 </div>
-            </div>
+                <span class="experiment-tag">Interactive Demo</span>
+                <span class="experiment-tag">13 Visualization Styles</span>
+            </a>
+
+            <!-- Future experiments will be added here -->
         </div>
 
-        <!-- Activity Timeline (appears above input) -->
-        <div class="activity-timeline" id="timeline" style="display: none;">
-            <div class="timeline-header">
-                <button class="style-toggle" id="style-toggle" title="Change visualization style (V)">
-                    <span id="current-style-name">Original</span> ▾
-                </button>
-            </div>
-            <div class="style-menu" id="style-menu" style="display: none;">
-                <div class="style-option" data-style="original">Original Design</div>
-                <div class="style-option" data-style="2char">2-Character</div>
-                <div class="style-option" data-style="4char">4-Character</div>
-                <div class="style-option" data-style="1char-color">Single Char + Color</div>
-                <div class="style-option" data-style="ascii-symbol">ASCII Symbols</div>
-                <div class="style-option" data-style="grid-unicode">Grid (Unicode)</div>
-                <div class="style-option" data-style="box-symbol">Box & Symbol</div>
-                <div class="style-option" data-style="dot-density">Dot Density</div>
-                <div class="style-option" data-style="geometric">Geometric Shapes</div>
-                <div class="style-option" data-style="grid-ascii">Grid (Pure ASCII)</div>
-                <div class="style-option" data-style="geometric-single">Geometric Single Line</div>
-                <div class="style-option" data-style="rgb-cmy">RGB/CMY Colors</div>
-                <div class="style-option" data-style="perceptual">Perceptual Temperature</div>
-            </div>
-            <div class="timeline-items" id="timeline-items"></div>
-        </div>
-
-        <!-- Activity Detail Panel -->
-        <div class="activity-detail" id="detail-panel" style="display: none;">
-            <div class="detail-content" id="detail-content"></div>
-        </div>
-
-        <!-- Input Area -->
-        <div class="input-area">
-            <div class="input-wrapper">
-                <textarea id="prompt-input" class="prompt-input" placeholder="Message Claude Code..." rows="1"></textarea>
-                <button class="send-button" id="send-button">↵</button>
-            </div>
-        </div>
+        <footer>
+            <p>TUI Playground · <a href="https://github.com/ahuhmm/tui-playground" target="_blank">View on GitHub</a></p>
+        </footer>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
