@@ -28,14 +28,27 @@ An interactive activity monitor designed to explore and visualize the sequence o
 ```
 tui-playground/
 ├── index.html              # Main landing page
+├── styles/                 # Shared CSS styles
+│   └── base.css           # Base window container and common styles
 ├── storyline/              # Storyline Activity Monitor experiment
 │   ├── index.html
-│   ├── style.css
+│   ├── storyline.css      # Activity timeline specific styles
 │   ├── script.js
-│   ├── variations.html     # Visualization style showcase
+│   ├── variations.html    # Visualization style showcase
 │   └── variations.css
 └── README.md
 ```
+
+## Shared Styles
+
+All experiments use a common base style (`styles/base.css`) that includes:
+- Window container with header controls (close, minimize, maximize)
+- Input area with textarea and send button
+- Messages area with scrollable content
+- Consistent dark theme and monospace typography
+- Custom scrollbar styling
+
+Each experiment can extend these base styles with their own specific CSS.
 
 ## Development
 
